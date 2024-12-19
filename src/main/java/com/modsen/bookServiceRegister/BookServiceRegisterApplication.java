@@ -1,0 +1,13 @@
+package com.modsen.bookServiceRegister;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BookServiceRegisterApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BookServiceRegisterApplication.class, args);
+	}
+
+}
