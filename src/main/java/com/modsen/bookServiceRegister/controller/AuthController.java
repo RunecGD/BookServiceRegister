@@ -1,9 +1,10 @@
 package com.modsen.bookServiceRegister.controller;
 
 import com.modsen.bookServiceRegister.dto.UserDTO;
-import com.modsen.bookServiceRegister.models.User;
+import com.modsen.bookServiceRegister.model.User;
 import com.modsen.bookServiceRegister.service.UserService;
 import com.modsen.bookServiceRegister.utils.JwtUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,22 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final UserDetailsService userDetailsService;
-
-    public AuthController(UserService userService,
-                          AuthenticationManager authenticationManager,
-                          JwtUtil jwtUtil,
-                          UserDetailsService userDetailsService) {
-        this.userService = userService;
-        this.authenticationManager = authenticationManager;
-        this.jwtUtil = jwtUtil;
-        this.userDetailsService = userDetailsService;
-    }
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody UserDTO userDTO) {
